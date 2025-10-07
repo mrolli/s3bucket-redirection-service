@@ -7,7 +7,29 @@
     <title>S3 Bucket Redirection Service</title>
     <script>
       function getCurrentURL() {
-        document.getElementById("curhref").innerHTML = window.location.href
+        document.getElementById("curhref").innerHTML = window.location.href;
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "/api/getTargetBucketURL", true);
+
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 400) {
+            // Success!
+            var jsonResponse = JSON.parse(xhr.responseText);
+            document.querySelector('#newhref').innerText = jsonResponse.bucketUrl;
+          } else {
+            // We reached our target server, but it returned an error
+            console.log("Server Error!");
+          }
+        };
+
+        xhr.onerror = function () {
+          // There was a connection error of some sort
+          console.log("Connection Error!");
+        };
+
+        xhr.send();
       }
     </script>
   </head>

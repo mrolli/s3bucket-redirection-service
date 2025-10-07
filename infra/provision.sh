@@ -9,7 +9,7 @@ tags="environment=$environment division=id subDivision=idci managedBy=azcli"
 repo_url=$(git remote -v | awk '/origin.*push/{gsub(/\.git$/, "", $2); print $2}')
 branch="main"
 app_location="/app"
-api_location=""
+api_location="api"
 output_location=""
 custom_url=""
 static_web_app_sku="Free" # or "Standard"
