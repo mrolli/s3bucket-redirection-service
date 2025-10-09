@@ -11,7 +11,7 @@ branch="main"
 app_location="/app"
 api_location="api"
 output_location=""
-custom_url=""
+custom_url="s3download.test.unibe.ch"
 static_web_app_sku="Free" # or "Standard"
 
 ### End of coniguration ###
