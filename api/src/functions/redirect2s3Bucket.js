@@ -6,7 +6,7 @@ app.http("redirect2s3bucket", {
   methods: ["GET"],
   authLevel: "anonymous",
   handler: async (request, context) => {
-    const originalUrl = req.headers["x-ms-original-url"];
+    const originalUrl = request.headers["x-ms-original-url"];
 
     if (originalUrl) {
       // This URL has been proxied as there was no static file matching it.
