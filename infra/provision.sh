@@ -8,7 +8,7 @@ tags="environment=$environment division=id subDivision=idci managedBy=azcli"
 #repo_url="owner/repo"
 repo_url=$(git remote -v | awk '/origin.*push/{gsub(/\.git$/, "", $2); print $2}')
 branch="main"
-app_location="/app"
+app_location="/src"
 api_location="api"
 output_location=""
 custom_url="s3download.test.unibe.ch"

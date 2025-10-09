@@ -1,5 +1,6 @@
 const { app } = require("@azure/functions");
 
+const s3BucketLister = "https://code.aiub.unibe.ch/s3_script/aiub_s3_bucket_listing.php"
 const s3BucketBase = "https://zhw-b.s3.cloud.switch.ch/aiub";
 
 /**
@@ -22,7 +23,7 @@ app.http("redirect2s3bucket", {
 
       if (path === "/" || path === "") {
         // no path provided, redirect to index
-        destinationUrl = "/";
+        destinationUrl = s3BucketLister;
       } else {
         destinationUrl = s3BucketBase + path;
       }
@@ -40,7 +41,7 @@ app.http("redirect2s3bucket", {
     return {
       status: 302,
       headers: {
-        location: "/",
+        location: s3BucketLister,
       },
     };
   },
