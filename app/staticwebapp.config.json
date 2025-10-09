@@ -1,5 +1,5 @@
 {
   "navigationFallback": {
-      "rewrite": "/index.html"
+      "rewrite": "/api/redirect2s3bucket"
   }
 }

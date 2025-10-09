@@ -3,42 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="refresh"
+      content="0;url=https://code.aiub.unibe.ch/s3_script/aiub_s3_bucket_listing.php"
+    />
     <link rel="stylesheet" href="/styles.css" />
     <title>S3 Bucket Redirection Service</title>
-    <script>
-      function getCurrentURL() {
-        document.getElementById("curhref").innerHTML = window.location.href;
-
-        var xhr = new XMLHttpRequest();
-
-        xhr.open("GET", "/api/getTargetBucketURL", true);
-
-        xhr.onload = function () {
-          if (xhr.status >= 200 && xhr.status < 400) {
-            // Success!
-            var jsonResponse = JSON.parse(xhr.responseText);
-            document.querySelector('#newhref').innerText = jsonResponse.bucketUrl;
-          } else {
-            // We reached our target server, but it returned an error
-            console.log("Server Error!");
-          }
-        };
-
-        xhr.onerror = function () {
-          // There was a connection error of some sort
-          console.log("Connection Error!");
-        };
-
-        xhr.send();
-      }
-    </script>
   </head>
 
   <body onload="getCurrentURL()">
     <main>
-      <h1>S3 Bucket Redirection Service</h1>
-      <p>Requested File: <span id="curhref" /></p>
-      <p>Redirect to: <span id="newhref" /></p>
+      <p>
+        Redrecting to
+        <a
+          href="https://code.aiub.unibe.ch/s3_script/aiub_s3_bucket_listing.php"
+          >Code Products File Browser</a
+        >...
+      </p>
     </main>
   </body>
 </html>
